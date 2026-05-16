@@ -1,0 +1,20 @@
+name: CI-CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  test-compose:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate compose
+        run: docker compose config
